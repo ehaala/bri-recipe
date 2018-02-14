@@ -9,6 +9,7 @@ var db = require('./models');
 var session = require('express-session');
 var flash = require('connect-flash');
 var isLoggedIn = require('./middleware/isLoggedIn');
+var isOwner = require('./middleware/isOwner');
 
 app.set('view engine', 'ejs');
 
