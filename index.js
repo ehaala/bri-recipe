@@ -44,12 +44,16 @@ app.get('/', function(req, res) {
 
 app.get('/profile', isLoggedIn, function(req, res) {
 	db.user.findOne({
-		where: {id: req.user.id}
+		where: {id: req.user.id},
+    include: [db.recipe]
 	}).then(function(user) {
-		res.render('profile', {user: user});
+    user.getRecipes().then(function(recipe) {
+      res.render('profile', {recipe: recipe, user: user});
+    })
 	})
 });
 
+app.use('/recipes', require('./controllers/recipes'));
 app.use('/users', require('./controllers/users'));
 app.use('/auth', require('./controllers/auth'));
 

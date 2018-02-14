@@ -1,5 +1,22 @@
-<h2>Profile Page</h2>
+<div class='col-sm-6'>
+	<p><%= user.firstName %> <%= user.lastName %></p>
+	<p>( <%= user.email %> )</p>
 
-<p>name: <%= user.firstName %> <%= user.lastName %></p>
+	<a href="/">Home</a>
+</div>
 
-<a href="/">Home</a>
+<div class='col-sm-6'>
+	<form action='/users/<%= user.id %>/recipe' method='POST'>
+		<input type='text' placeholder='(Recipe Name)' name='name' required>
+		<button type='submit' class='btn btn-success'>Add</button>
+	</form>
+
+	<hr />
+
+	<% user.recipes.forEach(function(recipe) { %>
+		<p>
+			<a href="/recipes/<%-recipe.id %>"><%= recipe.name %></a>
+			<a href="/recipes/<%= recipe.id %>/instructions">(Edit)</a>
+		</p>
+	<% }); %>
+</div>

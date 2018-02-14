@@ -1,0 +1,9 @@
+<div class='col-sm-12'>
+	<h1><%= recipe.name %></h1>
+
+	<% recipe.instructions.forEach(function(instruction) { %>
+		<ol>
+			<li><%= instruction.instruction %></li>
+		</ol>
+	<% }); %>
+</div>

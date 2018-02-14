@@ -1,15 +1,14 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var recipe = sequelize.define('recipe', {
-    name: DataTypes.STRING,
-    userId: DataTypes.INTEGER
+  var instruction = sequelize.define('instruction', {
+    instruction: DataTypes.STRING,
+    recipeId: DataTypes.INTEGER
   }, {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        models.recipe.hasMany(models.instruction);
       }
     }
   });
-  return recipe;
+  return instruction;
 };
