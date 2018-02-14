@@ -25,18 +25,18 @@ app.use(session({
 
 app.use(flash());
 
+//these lines MUST occur after the session is configured
+var passport = require('./config/ppConfig');
+// initialize the passport configuration and session as middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(function(req, res, next) {
   // before every route, attach the flash messages and current user to res.locals
   res.locals.alerts = req.flash();
   res.locals.currentUser = req.user;
   next();
 });
-
-//these lines MUST occur after the session is configured
-var passport = require('./config/ppConfig');
-// initialize the passport configuration and session as middleware
-app.use(passport.initialize());
-app.use(passport.session());
 
 app.get('/', function(req, res) {
   res.render('index');

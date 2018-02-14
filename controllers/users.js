@@ -12,4 +12,16 @@ router.get('/', isLoggedIn, function(req, res) {
   	});
 })
 
+router.get('/:id', isLoggedIn, function(req, res) {
+	db.user.findOne({
+		where: {id: req.params.id}
+		// include: [db.schedule]
+		// this will eventually be db.recipe
+	}).then(function(user) {
+			res.render('userinfo', {user: user});
+	}).catch(function(error) {
+    	res.status(400).render('404');
+  	});
+})
+
 module.exports = router;
