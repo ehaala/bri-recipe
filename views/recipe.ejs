@@ -1,9 +1,26 @@
-<div class='col-sm-12'>
-	<h1><%= recipe.name %></h1>
+<h1><%= recipe.name %></h1>
 
-	<ol>
-		<% recipe.instructions.forEach(function(instruction) { %>
-				<li><%= instruction.instruction %></li>
-		<% }); %>
-	</ol>
+<div class='container'>
+	<div class='row'>
+		<div class='col-sm-5'>
+			<ol>
+				<% recipe.instructions.forEach(function(instruction) { %>
+						<li><%= instruction.instruction %></li>
+				<% }); %>
+			</ol>
+		</div>
+
+		<div class='col-sm-2'></div>
+
+		<div class='col-sm-5 ingredients'>
+			<table class='kalam'>
+				<% recipe.ingredients.forEach(function(ingredient) { %>
+					<tr>
+						<td><%= ingredient.amount %></td>
+						<td><%= ingredient.ingredient %></td>
+					<tr>
+				<% }); %>
+			</table>
+		</div>
+	</div>
 </div>

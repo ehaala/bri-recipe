@@ -6,10 +6,27 @@ html, body {
 	font-size: 18px;
 }
 
+body {
+	background-image: url(../img/food-back.jpg);
+}
+
 h1 {
 	text-align: center;
 }
 
-.dark {
-	color: black;
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+.ingredients {
+	background-image: url(../img/index-card.jpg);
+}
+
+.kalam {
+	font-family: 'Kalam';
 }

@@ -8,7 +8,7 @@ var isOwner = require('../middleware/isOwner');
 router.get('/:id', isLoggedIn, function(req, res) {
 	db.recipe.findOne({
 		where: {id: req.params.id},
-		include: [db.instruction]
+		include: [db.instruction, db.ingredient]
 	}).then(function(recipe) {
 		res.render('recipe', {recipe: recipe});
 	}).catch(function(error) {
@@ -28,9 +28,21 @@ router.get('/:id/instructions', isOwner, function(req, res) {
   });
 })
 
-router.post('/:id/instructions', isLoggedIn, function(req, res) {
+router.post('/:id/instructions', isOwner, function(req, res) {
 	db.instruction.create({
 		instruction: req.body.instruction,
+		recipeId: req.params.id
+	}).then(function() {
+		res.redirect('/profile');
+	}).catch(function(error) {
+    res.status(400).render('404');
+  });
+})
+
+router.post('/:id/ingredients', isOwner, function(req, res) {
+	db.ingredient.create({
+		ingredient: req.body.ingredient,
+		amount: req.body.amount,
 		recipeId: req.params.id
 	}).then(function() {
 		res.redirect('/profile');

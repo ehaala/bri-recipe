@@ -3,4 +3,9 @@
 		<input type='text' placeholder='(Instructions)' name='instruction' required>
 		<button type='submit' class='btn btn-success'>Add</button>
 	</form>
+	<form action='/recipes/<%= recipe.id %>/ingredients' method='POST'>
+		<input type='text' placeholder='(Amount)' name='amount' required>
+		<input type='text' placeholder='(Ingredient)' name='ingredient' required>
+		<button type='submit' class='btn btn-success'>Add</button>
+	</form>
 </div>
