@@ -32,10 +32,34 @@ router.post('/:id/instructions', isOwner, function(req, res) {
 		instruction: req.body.instruction,
 		recipeId: req.params.id
 	}).then(function() {
-		res.redirect('/profile');
+		res.redirect('/recipes/' + req.params.id + '/instructions');
 	}).catch(function(error) {
     res.status(400).render('404');
   });
+})
+
+router.delete('/:id/instructions/:id', isLoggedIn, function(req, res) {
+	db.instruction.destroy({
+		where: {
+			id: req.params.id,
+		}
+	}).catch(function(error) {
+    	res.status(400).render('404');
+  	});
+})
+
+router.put('/:id/instructions/:id', function(req, res) {
+	db.instruction.findOne({
+		where: {
+			id: req.params.id
+		}
+	}).then(function(instruction) {
+		instruction.updateAttributes(req.body);
+	}).then(function() {
+		//
+	}).catch(function(error) {
+    	res.status(400).render('404');
+  	});
 })
 
 router.post('/:id/ingredients', isOwner, function(req, res) {

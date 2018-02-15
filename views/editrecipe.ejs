@@ -2,14 +2,53 @@
 	<form action='/recipes/<%= recipe.id %>/instructions' method='POST'>
 		<input type='text' placeholder='(Instructions)' name='instruction' required>
 		<button type='submit' class='btn btn-success'>Add</button>
+		<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#basicModal">Edit</a>
 	</form>
 	<hr />
 	<ol>
-		<% recipe.instructions.forEach(function(instruction) { %>
-				<li><%= instruction.instruction %></li>
-		<% }); %>
+		<table>
+			<% recipe.instructions.forEach(function(instruction) { %>
+				<tr>
+					<td><li><%= instruction.instruction %></li></td>
+					<td><a href="/recipes/<%= recipe.id %>/instructions/<%= instruction.id %>" type="submit" class="remove">(Delete)</a></td>
+				</tr>
+			<% }); %>
+		</table>
 	</ol>
 </div>
+
+
+<!-- modal -->
+<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Edit Instructions</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+				<table>
+					<% recipe.instructions.forEach(function(instruction) { %>
+						<form action="/recipes/<%= recipe.id %>/instructions/<%= instruction.id %>" method="put" class="put">
+							<tr>
+								<td><input type='text' name='instruction'. value='<%= instruction.instruction %>'/></td>
+								<td><button type="submit">Update</button></td>
+							</tr>
+						</form>
+					<% }); %>
+				</table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end modal -->
+
+
 <div class='col-sm-6'>
 	<form action='/recipes/<%= recipe.id %>/ingredients' method='POST'>
 		<input type='text' placeholder='(Amount)' name='amount' required>
@@ -17,7 +56,7 @@
 		<button type='submit' class='btn btn-success'>Add</button>
 	</form>
 	<hr />
-	<table class='kalam'>
+	<table>
 		<% recipe.ingredients.forEach(function(ingredient) { %>
 			<tr>
 				<td><%= ingredient.amount %></td>
