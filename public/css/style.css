@@ -23,6 +23,10 @@ th, td {
     text-align: left;
 }
 
+.navbar {
+	border-radius: 0px;
+}
+
 .ingredients {
 	background-image: url(../img/index-card.jpg);
 }

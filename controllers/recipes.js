@@ -18,9 +18,8 @@ router.get('/:id', isLoggedIn, function(req, res) {
 
 router.get('/:id/instructions', isOwner, function(req, res) {
 	db.recipe.findOne({
-		where: {
-			id: req.params.id
-		}
+		where: {id: req.params.id},
+		include: [db.instruction, db.ingredient]
 	}).then(function(recipe) {
 		res.render('editrecipe', {recipe: recipe, user: req.user});
 	}).catch(function(error) {
@@ -45,10 +44,20 @@ router.post('/:id/ingredients', isOwner, function(req, res) {
 		amount: req.body.amount,
 		recipeId: req.params.id
 	}).then(function() {
-		res.redirect('/profile');
+		res.redirect('/recipes/' + req.params.id + '/instructions');
 	}).catch(function(error) {
     res.status(400).render('404');
   });
+})
+
+router.delete('/:id/ingredients/:id', isLoggedIn, function(req, res) {
+	db.ingredient.destroy({
+		where: {
+			id: req.params.id,
+		}
+	}).catch(function(error) {
+    	res.status(400).render('404');
+  	});
 })
 
 module.exports = router;
