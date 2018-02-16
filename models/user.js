@@ -53,6 +53,7 @@ module.exports = (sequelize, DataTypes) => {
       associate: function(models) {
         // associations can be defined here
         models.user.hasMany(models.recipe);
+        models.user.hasMany(models.favorite);
       }
     },
     instanceMethods: {

@@ -54,6 +54,7 @@ app.get('/profile', isLoggedIn, function(req, res) {
 	})
 });
 
+app.use('/myrecipes', require('./controllers/myrecipes'));
 app.use('/recipes', require('./controllers/recipes'));
 app.use('/users', require('./controllers/users'));
 app.use('/auth', require('./controllers/auth'));
