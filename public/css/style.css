@@ -19,7 +19,7 @@ table {
 }
 
 th, td {
-    padding: 10px;
+    padding: 4px 10px;
     text-align: left;
 }
 
@@ -29,8 +29,28 @@ th, td {
 
 .ingredients {
 	background-image: url(../img/index-card.jpg);
+	padding: 10px;
+}
+
+.instructions {
+	background: white;
+	padding: 10px;
+}
+
+.edit {
+	background: white;
+	padding: 10px;
+	border: solid 1px lightgray;
 }
 
 .kalam {
 	font-family: 'Kalam';
+}
+
+.border {
+	border: solid 1px lightgray;
+}
+
+.center {
+	text-align: center;
 }
