@@ -27,6 +27,20 @@ $('document').ready(function() {
 		window.location.reload(true);
 	});
 
+	$('.unfavorite').on('click', function(e) {
+		e.preventDefault();
+		var toRemove = $(this);
+		var url = toRemove.attr('href');
+
+		$.ajax({
+			method: 'delete',
+			url: url
+		}).done(function(data) {
+			console.log(data);
+		});
+		window.location.reload(true);
+	});
+
 	$('.put').on('submit', function(e) {
     e.preventDefault();
     var element = $(this);

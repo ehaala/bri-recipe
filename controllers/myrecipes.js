@@ -23,13 +23,24 @@ router.post('/', isLoggedIn, function(req, res) {
 		db.favorite.findOrCreate({
 			where: {
 				name: req.body.name,
-				recipeid: req.body.recipeid
+				recipeid: req.body.recipeid,
+				userId: req.user.id
 			}
 		}).spread(function(favorite, created) {
 			user.addFavorite(favorite).then(function(favorite) {
 				res.redirect('/myrecipes');
 			})
 		})
+	}).catch(function(error) {
+    	res.status(400).render('404');
+  	});
+})
+
+router.delete('/:id', isLoggedIn, function(req, res) {
+	db.favorite.destroy({
+		where: {
+			id: req.params.id,
+		}
 	}).catch(function(error) {
     	res.status(400).render('404');
   	});

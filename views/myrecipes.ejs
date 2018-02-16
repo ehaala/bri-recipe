@@ -5,6 +5,7 @@
 	  <div class="col-sm-3">
 	    <h2>
 	      <a href='/recipes/<%-favorite.recipeid %>'><%= favorite.name %></a>
+	      <a href="/myrecipes/<%-favorite.id %>" type="submit" class="btn btn-danger unfavorite">X</a>
 	    </h2>
 	  </div>
 	<% }); %>
