@@ -40,7 +40,9 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', function(req, res) {
-  res.render('index');
+  db.recipe.findAll().then(function(recipes) {
+    res.render('index', {recipes: recipes});
+  })
 });
 
 app.get('/profile', isLoggedIn, function(req, res) {

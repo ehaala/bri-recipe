@@ -1,5 +1,21 @@
 <div class='row'>
-	<div class='basicDiv col-sm-12'>
+	<div class='basicDiv col-sm-12 center'>
 		<h1 class='kalam'>Welcome</h1>
+		<p>Find a recipe or <a href='/profile'>create</a> your own!</p>
+	</div>
+</div>
+
+<hr />
+
+<div class='row basicDiv'>
+	<div class='col-sm-12'>
+		<h3 class='center kalam'>Featured Recipes</h3>
+	</div>
+	<div class='row center'>
+		<% recipes.forEach(function(recipe) { %>
+			<div class='col-sm-4'>
+				<a href='/recipes/<%= recipe.id %>'><h3><%= recipe.name %></h3></a>
+			</div>
+		<% }); %>
 	</div>
 </div>

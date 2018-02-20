@@ -1,22 +1,26 @@
-<div class='col-sm-6'>
-	<p><%= user.firstName %> <%= user.lastName %></p>
-	<p>( <%= user.email %> )</p>
+<div class='row'>
+	<div class='col-sm-3 basicDiv center'>
+		<p><%= user.firstName %> <%= user.lastName %></p>
+		<p>( <%= user.email %> )</p>
+		<hr />
+		<a href="/">Home</a>
+	</div>
 
-	<a href="/">Home</a>
-</div>
+	<div class='col-sm-1'></div>
 
-<div class='col-sm-6'>
-	<form action='/users/<%= user.id %>/recipe' method='POST'>
-		<input type='text' placeholder='(Recipe Name)' name='name' required>
-		<button type='submit' class='btn btn-success'>Add</button>
-	</form>
+	<div class='col-sm-8 basicDiv'>
+		<form action='/users/<%= user.id %>/recipe' method='POST'>
+			<input type='text' placeholder='(Recipe Name)' name='name' required>
+			<button type='submit' class='btn btn-success'>Add</button>
+		</form>
 
-	<hr />
+		<hr />
 
-	<% user.recipes.forEach(function(recipe) { %>
-		<p>
-			<a href="/recipes/<%-recipe.id %>"><%= recipe.name %></a>
-			<a href="/recipes/<%= recipe.id %>/instructions">(Edit)</a>
-		</p>
-	<% }); %>
+		<% user.recipes.forEach(function(recipe) { %>
+			<p>
+				<a href="/recipes/<%-recipe.id %>"><%= recipe.name %></a>
+				<a href="/recipes/<%= recipe.id %>/instructions">(Edit)</a>
+			</p>
+		<% }); %>
+	</div>
 </div>

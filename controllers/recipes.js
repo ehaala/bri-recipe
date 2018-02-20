@@ -24,10 +24,6 @@ router.get('/:id', isLoggedIn, function(req, res) {
 	});
 })
 
-// db.favorite.findAll({
-// 	where: {recipeid: recipe.id}
-// })
-
 router.get('/:id/instructions', isOwner, function(req, res) {
 	db.recipe.findOne({
 		where: {id: req.params.id},
