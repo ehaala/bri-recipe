@@ -1,7 +1,18 @@
 <div class='row'>
+	<div class='col-sm-4'></div>
+	<div class='col-sm-4 recipeHead'>
+		<h1><%= recipe.name %></h1>
+		<p class='center'>Created by: <a href='/users/<%= user.id %>'><%= user.firstName %></a></p>
+	</div>
+	<div class='col-sm-4'></div>
+</div>
+
+<hr />
+
+<div class='row'>
 	<div class='col-sm-5 ingredients border'>
 		<h2 class='kalam in-block center'>
-			<%= recipe.name %>
+			Ingredients
 		</h2>
 		<table class='kalam'>
 			<% recipe.ingredients.forEach(function(ingredient) { %>

@@ -10,10 +10,14 @@ router.get('/:id', isLoggedIn, function(req, res) {
 		where: {id: req.params.id},
 		include: [db.instruction, db.ingredient]
 	}).then(function(recipe) {
-		res.render('recipe', {recipe: recipe});
-	}).catch(function(error) {
-    res.status(400).render('404');
-  });
+		db.user.findOne({
+			where: {id: recipe.userId}
+		}).then(function(user) {
+			res.render('recipe', {recipe: recipe, user: user});
+		}).catch(function(error) {
+    	res.status(400).render('404');
+  	});
+	});
 })
 
 router.get('/:id/instructions', isOwner, function(req, res) {

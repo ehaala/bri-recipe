@@ -27,6 +27,11 @@ th, td {
 	border-radius: 0px;
 }
 
+.recipeHead {
+	background: white;
+	border: solid 1px lightgray;
+}
+
 .ingredients {
 	background-image: url(../img/index-card.jpg);
 	padding: 10px;
