@@ -1,11 +1,15 @@
-<div class='' style="overflow:scroll;">
+<div class='row basicDiv'>
+	<ul id='userList'>
 	<% users.forEach(function(user) { %>
-	  <div class="col-sm-3">
-	    <h2>
-	      <a href="/users/<%= user.id %>">
-	        <%= user.lastName %>, <%= user.firstName %>
-	      </a>
-	    </h2>
-	  </div>
+	  <li>
+	  	<div class='col-sm-3 center'>
+		    <h2>
+		      <a href="/users/<%= user.id %>">
+		        <%= user.lastName %>, <%= user.firstName %>
+		      </a>
+		    </h2>
+	  	</div>
+	  </li>
 	<% }); %>
+	</ul>
 </div>

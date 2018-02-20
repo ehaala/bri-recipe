@@ -1,19 +1,21 @@
-<div class='col-sm-6'>
-	<h1><%= user.firstName %> <%= user.lastName %></h1>
+<div class='row'>
+	<div class='col-sm-4 basicDiv center'>
+		<h1><%= user.firstName %> <%= user.lastName %></h1>
+		<p>( <%= user.email %> )</p>
+		<hr />
+		<a href="/users">Back to all users</a>
+	</div>
 
-	<p>( <%= user.email %> )</p>
+	<div class='col-sm-1'></div>
 
-	<img class='profilepic' src="http://lorempixel.com/200/200/abstract">
-
-	<hr />
-
-	<a href="/users">&larr; Back to all users</a>
-</div>
-
-<div class='col-sm-6' style="overflow:scroll;">
-	<h3>Recipes</h3>
-	<% user.recipes.forEach(function(recipe) { %>
-		<a href="/recipes/<%-recipe.id %>"><%= recipe.name %></a>
-		<br />
-	<% }); %>
+	<div class='col-sm-7 basicDiv' style="overflow:scroll;">
+		<h1 class='kalam'>Recipes</h1>
+		<div class='row'>
+			<% user.recipes.forEach(function(recipe) { %>
+				<div class='col-sm-4 center'>
+					<h3><a href="/recipes/<%-recipe.id %>"><%= recipe.name %></a></h3>
+				</div>
+			<% }); %>
+		</div>
+	</div>
 </div>

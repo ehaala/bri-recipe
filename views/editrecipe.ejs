@@ -1,4 +1,4 @@
-<div class='col-sm-6 edit'>
+<div class='col-sm-6 basicDiv'>
 	<form action='/recipes/<%= recipe.id %>/instructions' method='POST'>
 		<input type='text' placeholder='(Instructions)' name='instruction' required>
 		<button type='submit' class='btn btn-success'>Add</button>
@@ -50,7 +50,7 @@
 
 <div class='col-sm-1'></div>
 
-<div class='col-sm-5 edit'>
+<div class='col-sm-5 basicDiv'>
 	<form action='/recipes/<%= recipe.id %>/ingredients' method='POST'>
 		<input type='text' placeholder='(Amount)' name='amount' required>
 		<input type='text' placeholder='(Ingredient)' name='ingredient' required>

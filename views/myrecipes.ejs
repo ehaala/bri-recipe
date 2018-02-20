@@ -1,12 +1,12 @@
-<h1>My Favorite Recipes</h1>
+<h1 class='kalam'>My Favorites</h1>
 
-<div class='' style="overflow:scroll;">
+<div class='row basicDiv'>
 	<% user.favorites.forEach(function(favorite) { %>
-	  <div class="col-sm-3">
-	    <h2>
+	  <div class='col-sm-4 center'>
+	    <h3>
 	      <a href='/recipes/<%-favorite.recipeid %>'><%= favorite.name %></a>
-	      <a href="/myrecipes/<%-favorite.id %>" type="submit" class="btn btn-danger unfavorite">X</a>
-	    </h2>
+	      <a href="/favorites/<%-favorite.id %>" type="submit" class="btn btn-danger unfavorite circle">X</a>
+	    </h3>
 	  </div>
 	<% }); %>
 </div>

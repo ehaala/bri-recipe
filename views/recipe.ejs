@@ -1,7 +1,7 @@
 <div class='row'>
 	<div class='col-sm-4'></div>
-	<div class='col-sm-4 recipeHead'>
-		<h1><%= recipe.name %></h1>
+	<div class='col-sm-4 basicDiv'>
+		<h1 class='kalam'><%= recipe.name %></h1>
 		<p class='center'>Created by: <a href='/users/<%= user.id %>'><%= user.firstName %></a></p>
 	</div>
 	<div class='col-sm-4'></div>
@@ -10,7 +10,7 @@
 <hr />
 
 <div class='row'>
-	<div class='col-sm-5 ingredients border'>
+	<div class='col-sm-5 basicDiv ingredients'>
 		<h2 class='kalam in-block center'>
 			Ingredients
 		</h2>
@@ -26,15 +26,15 @@
 
 	<div class='col-sm-1'></div>
 
-	<div class='col-sm-6 instructions border'>
-		<h2 class='center'>Instructions</h2>
+	<div class='col-sm-6 basicDiv'>
+		<h2 class='center kalam'>Instructions</h2>
 		<ol>
 			<% recipe.instructions.forEach(function(instruction) { %>
 					<li><%= instruction.instruction %></li>
 			<% }); %>
 		</ol>
 		<hr />
-		<form method="POST" action="/myrecipes" class='in-block center'>
+		<form method="POST" action="/favorites" class='in-block center'>
 			<input hidden type='text' name='name' value='<%= recipe.name %>'>
 			<input hidden type="text" name="recipeid" value="<%= recipe.id %>">
 			<button class="btn btn-success" type="submit">Save</button>

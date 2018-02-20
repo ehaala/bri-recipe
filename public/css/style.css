@@ -7,7 +7,11 @@ html, body {
 }
 
 body {
-	background-image: url(../img/food-back.jpg);
+	background: url(../img/food-back.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 h1 {
@@ -27,35 +31,28 @@ th, td {
 	border-radius: 0px;
 }
 
-.recipeHead {
+.basicDiv {
 	background: white;
+	padding: 10px;
 	border: solid 1px lightgray;
 }
 
 .ingredients {
 	background-image: url(../img/index-card.jpg);
-	padding: 10px;
-}
-
-.instructions {
-	background: white;
-	padding: 10px;
-}
-
-.edit {
-	background: white;
-	padding: 10px;
-	border: solid 1px lightgray;
 }
 
 .kalam {
 	font-family: 'Kalam';
 }
 
-.border {
-	border: solid 1px lightgray;
-}
-
 .center {
 	text-align: center;
+}
+
+.circle {
+	border-radius: 50%;
+}
+
+#userList {
+	list-style: none;
 }

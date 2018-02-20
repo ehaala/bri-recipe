@@ -28,7 +28,7 @@ router.post('/', isLoggedIn, function(req, res) {
 			}
 		}).spread(function(favorite, created) {
 			user.addFavorite(favorite).then(function(favorite) {
-				res.redirect('/myrecipes');
+				res.redirect('/favorites');
 			})
 		})
 	}).catch(function(error) {
