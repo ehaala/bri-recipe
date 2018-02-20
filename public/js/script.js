@@ -65,5 +65,7 @@ $('document').ready(function() {
 		}).appendTo(selector);
 	};
 
-	sortUL("#userList")
+	sortUL("#userList");
+
+	sortUL("#favList");
 })

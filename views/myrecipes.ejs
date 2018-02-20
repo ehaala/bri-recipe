@@ -1,12 +1,19 @@
 <h1 class='kalam'>My Favorites</h1>
 
 <div class='row basicDiv'>
-	<% user.favorites.forEach(function(favorite) { %>
-	  <div class='col-sm-4 center'>
-	    <h3>
-	      <a href='/recipes/<%-favorite.recipeid %>'><%= favorite.name %></a>
-	      <a href="/favorites/<%-favorite.id %>" type="submit" class="btn btn-danger unfavorite circle">X</a>
-	    </h3>
-	  </div>
-	<% }); %>
+  <% if (user.favorites[0] == null) { %>
+    <h3 class='center'>Find a recipe to add to your favorites!</h3>
+  <% } %>
+	<ul id='favList'>
+		<% user.favorites.forEach(function(favorite) { %>
+			<li>
+			  <div class='col-sm-4 center'>
+			    <h3>
+			      <a href='/recipes/<%-favorite.recipeid %>'><%= favorite.name %></a>
+			      <a href="/favorites/<%-favorite.id %>" type="submit" class="btn btn-danger unfavorite circle">X</a>
+			    </h3>
+			  </div>
+			</li>
+		<% }); %>
+	</ul>
 </div>

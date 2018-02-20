@@ -27,6 +27,10 @@ th, td {
     text-align: left;
 }
 
+a {
+	color: #6495ED;
+}
+
 .navbar {
 	border-radius: 0px;
 }
@@ -53,6 +57,16 @@ th, td {
 	border-radius: 50%;
 }
 
+.btn-danger {
+	color: red;
+	background: white;
+	border-color: red;
+}
+
 #userList {
+	list-style: none;
+}
+
+#favList {
 	list-style: none;
 }

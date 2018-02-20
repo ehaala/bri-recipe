@@ -13,12 +13,20 @@ router.get('/:id', isLoggedIn, function(req, res) {
 		db.user.findOne({
 			where: {id: recipe.userId}
 		}).then(function(user) {
-			res.render('recipe', {recipe: recipe, user: user});
-		}).catch(function(error) {
-    	res.status(400).render('404');
-  	});
+			db.favorite.findAll({
+				where: {recipeid: recipe.id}
+			}).then(function(favorites) {
+				res.render('recipe', {recipe: recipe, user: user, favorites: favorites});
+			}).catch(function(error) {
+	    	res.status(400).render('404');
+	  	});
+		});
 	});
 })
+
+// db.favorite.findAll({
+// 	where: {recipeid: recipe.id}
+// })
 
 router.get('/:id/instructions', isOwner, function(req, res) {
 	db.recipe.findOne({
