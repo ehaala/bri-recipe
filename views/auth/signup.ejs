@@ -1,23 +1,29 @@
-<form action="/auth/signup" method="POST">
-  <div class="form-group">
-    <label for="authEmail">Email</label>
-    <input id="authEmail" class="form-control" type="email" name="email">
-  </div>
+<div class='row'>
+  <div class='col-sm-3'></div>
+  <div class='col-sm-6 basicDiv'>
+    <form action="/auth/signup" method="POST">
+      <div class="form-group">
+        <label for="authFName">First Name</label>
+        <input id="authFName" class="form-control" type="text" name="firstName">
+      </div>
 
-  <div class="form-group">
-    <label for="authFName">First Name</label>
-    <input id="authFName" class="form-control" type="text" name="firstName">
-  </div>
+      <div class="form-group">
+        <label for="authLName">Last Name</label>
+        <input id="authLName" class="form-control" type="text" name="lastName">
+      </div>
 
-  <div class="form-group">
-    <label for="authLName">Last Name</label>
-    <input id="authLName" class="form-control" type="text" name="lastName">
-  </div>
+      <div class="form-group">
+        <label for="authEmail">Email</label>
+        <input id="authEmail" class="form-control" type="email" name="email">
+      </div>
 
-  <div class="form-group">
-    <label for="authPassword">Password</label>
-    <input id="authPassword" class="form-control" type="password" name="password">
-  </div>
+      <div class="form-group">
+        <label for="authPassword">Password</label>
+        <input id="authPassword" class="form-control" type="password" name="password">
+      </div>
 
-  <input class="btn btn-primary" type="submit">
-</form>
+      <input class="btn btn-primary" type="submit">
+    </form>
+  </div>
+  <div class='col-sm-3'></div>
+</div>
