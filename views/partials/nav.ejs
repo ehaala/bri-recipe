@@ -16,7 +16,7 @@
 
       <ul class="nav navbar-nav navbar-right">
         <% if (currentUser) { %>
-          <li><a href="/profile">(<%= currentUser.email %>)</a></li>
+          <li><a href="/profile" class='blue'>(<%= currentUser.email %>)</a></li>
           <li><a href="/auth/logout">Logout</a></li>
         <% } else { %>
           <li><a href="/auth/signup">Sign Up</a></li>

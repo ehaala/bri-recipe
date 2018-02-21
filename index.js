@@ -40,8 +40,10 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', function(req, res) {
-  db.recipe.findAll().then(function(recipes) {
-    res.render('index', {recipes: recipes});
+  db.favorite.findAll().then(function(favorites) {
+    db.recipe.findAll().then(function(recipes) {
+      res.render('index', {favorites: favorites, recipes: recipes})
+    })
   })
 });
 
