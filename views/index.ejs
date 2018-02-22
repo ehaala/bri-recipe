@@ -26,7 +26,6 @@
 			<% if(favArr.length > 2) { %>
 				<div class='col-sm-4'>
 					<a href='/recipes/<%= recipe.id %>'><h3 class='kalam'><%= recipe.name %></h3></a>
-<!-- 					<p><%= favArr.length %> likes</p> -->
 					<% recipe.images.forEach(function(image) { %>
 						<img src='<%= image.url %>' class='boxshadow grayborder' name='<%= image.name %>' width='80%' />
 					<% }) %>
