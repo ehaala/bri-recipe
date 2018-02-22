@@ -41,7 +41,9 @@ app.use(function(req, res, next) {
 
 app.get('/', function(req, res) {
   db.favorite.findAll().then(function(favorites) {
-    db.recipe.findAll().then(function(recipes) {
+    db.recipe.findAll({
+      include: [db.image]
+    }).then(function(recipes) {
       res.render('index', {favorites: favorites, recipes: recipes})
     })
   })

@@ -11,7 +11,7 @@
 		</form>
 		<hr />
 		<% recipe.images.forEach(function(image) { %>
-			<img src='<%= image.url %>' class='boxshadow grayborder' name='<%= image.name %>' width='80%' />
+			<img src='<%= image.url %>' class='boxshadow grayborder' name='<%= image.name %>' width='90%' />
 		<% }) %>
 	</div>
 
@@ -35,6 +35,7 @@
 
 			<div class='col-sm-12 basicDiv'>
 				<h2 class='center kalam'>Instructions</h2>
+				<hr />
 				<ol>
 					<% recipe.instructions.forEach(function(instruction) { %>
 							<li><%= instruction.instruction %></li>

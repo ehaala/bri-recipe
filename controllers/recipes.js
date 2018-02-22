@@ -5,14 +5,6 @@ var router = express.Router();
 var isLoggedIn = require('../middleware/isLoggedIn');
 var isOwner = require('../middleware/isOwner');
 
-// router.get('/', isLoggedIn, function(req, res) {
-// 	db.recipe.findAll().then(function(recipes) {
-// 		res.render('recipes', {recipes: recipes});
-// 	}).catch(function(error) {
-//     res.status(400).render('404');
-//   });
-// })
-
 router.get('/', function(req, res) {
   db.recipe.findAll().then(function(recipes) {
     db.user.findAll().then(function(users) {

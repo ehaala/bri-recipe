@@ -1,4 +1,5 @@
 <div class='row'>
+	<div class='col-sm-1'></div>
 	<div class='col-sm-3 basicDiv center'>
 		<p><%= user.firstName %> <%= user.lastName %></p>
 		<p>( <%= user.email %> )</p>
@@ -8,7 +9,7 @@
 
 	<div class='col-sm-1'></div>
 
-	<div class='col-sm-8 basicDiv'>
+	<div class='col-sm-6 basicDiv'>
 		<form action='/users/<%= user.id %>/recipe' method='POST'>
 			<input type='text' placeholder='(Recipe Name)' name='name' required>
 			<button type='submit' class='btn btn-success'>Add</button>
@@ -23,4 +24,5 @@
 			</p>
 		<% }); %>
 	</div>
+	<div class='col-sm-1'></div>
 </div>

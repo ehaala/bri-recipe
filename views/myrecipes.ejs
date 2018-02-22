@@ -8,7 +8,7 @@
 		<% user.favorites.forEach(function(favorite) { %>
 			<li>
 			  <div class='col-sm-4 center'>
-			    <h3>
+			    <h3 class='kalam'>
 			      <a href='/recipes/<%-favorite.recipeid %>'><%= favorite.name %></a>
 			      <a href="/favorites/<%-favorite.id %>" type="submit" class="btn btn-danger unfavorite circle">X</a>
 			    </h3>

@@ -6,7 +6,7 @@
 		<% recipes.forEach(function(recipe) { %>
 			<li>
 				<div class='col-sm-6'>
-				 	<a href='recipes/<%= recipe.id %>'><h3><%= recipe.name %></h3></a>
+				 	<a href='recipes/<%= recipe.id %>'><h3 class='kalam'><%= recipe.name %></h3></a>
 				 	<% users.forEach(function(user) { %>
 				 		<% if(user.id === recipe.userId) { %>
 				 			<p>(by <a href='users/<%= user.id %>'><%= user.firstName %></a>)</p>
