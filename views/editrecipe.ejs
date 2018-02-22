@@ -1,69 +1,95 @@
-<div class='col-sm-6 basicDiv'>
-	<form action='/recipes/<%= recipe.id %>/instructions' method='POST'>
-		<input type='text' placeholder='(Instructions)' name='instruction' required>
-		<button type='submit' class='btn btn-success'>Add</button>
-		<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#basicModal">Edit</a>
-	</form>
-	<hr />
-	<ol>
-		<table>
-			<% recipe.instructions.forEach(function(instruction) { %>
-				<tr>
-					<td><li><%= instruction.instruction %></li></td>
-					<td><a href="/recipes/<%= recipe.id %>/instructions/<%= instruction.id %>" type="submit" class="remove">(Delete)</a></td>
-				</tr>
-			<% }); %>
-		</table>
-	</ol>
-</div>
+<div class='row'>
 
+	<div class='col-sm-6 basicDiv center'>
+		<h1 class='kalam'><%= recipe.name %></h1>
+		<hr />
+		<% if(recipe.images.length === 0) { %>
+		<form action='/recipes/<%= recipe.id %>/images' method='POST'>
+			<input type='text' placeholder='Name' name='name' required>
+			<input type='text' placeholder='URL (Image address)' name='url' required>
+			<button type='submit' class='btn btn-success'>Add Image</button>
+		</form>
+		<p>Please add a short name that describes your image</p>
+		<% } %>
+		<hr />
+		<% recipe.images.forEach(function(image) { %>
+			<img src='<%= image.url %>' alt='<%= image.name %>' class='boxshadow grayborder' width='75%'/>
+			<br />
+			<a href="/recipes/<%= recipe.id %>/images/<%-image.id %>" type="submit" class="btn btn-danger remove circle">X</a>
+		<% }) %>
+	</div>
 
-<!-- modal -->
-<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">Edit Instructions</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-				<table>
-					<% recipe.instructions.forEach(function(instruction) { %>
-						<form action="/recipes/<%= recipe.id %>/instructions/<%= instruction.id %>" method="put" class="put">
+	<div class='col-sm-1'></div>
+
+	<div class='col-sm-5 basicDiv'>
+		<div class='row'>
+			<div class='col-sm-12'>
+				<form action='/recipes/<%= recipe.id %>/instructions' method='POST'>
+					<input type='text' placeholder='Instructions...' name='instruction' required>
+					<button type='submit' class='btn btn-success'>Add</button>
+					<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#basicModal">Edit</a>
+				</form>
+				<hr />
+				<ol>
+					<table>
+						<% recipe.instructions.forEach(function(instruction) { %>
 							<tr>
-								<td><input type='text' name='instruction'. value='<%= instruction.instruction %>'/></td>
-								<td><button type="submit">Update</button></td>
+								<td><li><%= instruction.instruction %></li></td>
+								<td><a href="/recipes/<%= recipe.id %>/instructions/<%= instruction.id %>" type="submit" class="remove">(Delete)</a></td>
 							</tr>
-						</form>
+						<% }); %>
+					</table>
+				</ol>
+				<hr />
+			</div>
+
+			<!-- modal -->
+			<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h4 class="modal-title" id="myModalLabel">Edit Instructions</h4>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+							<table>
+								<% recipe.instructions.forEach(function(instruction) { %>
+									<form action="/recipes/<%= recipe.id %>/instructions/<%= instruction.id %>" method="put" class="put">
+										<tr>
+											<td><input type='text' name='instruction'. value='<%= instruction.instruction %>'/></td>
+											<td><button type="submit">Update</button></td>
+										</tr>
+									</form>
+								<% }); %>
+							</table>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- end modal -->
+
+			<div class='col-sm-12'>
+				<form action='/recipes/<%= recipe.id %>/ingredients' method='POST'>
+					<input type='text' placeholder='Amount...' name='amount' required>
+					<input type='text' placeholder='Ingredient...' name='ingredient' required>
+					<button type='submit' class='btn btn-success'>Add</button>
+				</form>
+				<hr />
+				<table>
+					<% recipe.ingredients.forEach(function(ingredient) { %>
+						<tr>
+							<td><%= ingredient.amount %></td>
+							<td><%= ingredient.ingredient %></td>
+							<td><a href="/recipes/<%= recipe.id %>/ingredients/<%= ingredient.id %>" type="submit" class="delete">(Delete)</a></td>
+						<tr>
 					<% }); %>
 				</table>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- end modal -->
-
-<div class='col-sm-1'></div>
-
-<div class='col-sm-5 basicDiv'>
-	<form action='/recipes/<%= recipe.id %>/ingredients' method='POST'>
-		<input type='text' placeholder='(Amount)' name='amount' required>
-		<input type='text' placeholder='(Ingredient)' name='ingredient' required>
-		<button type='submit' class='btn btn-success'>Add</button>
-	</form>
-	<hr />
-	<table>
-		<% recipe.ingredients.forEach(function(ingredient) { %>
-			<tr>
-				<td><%= ingredient.amount %></td>
-				<td><%= ingredient.ingredient %></td>
-				<td><a href="/recipes/<%= recipe.id %>/ingredients/<%= ingredient.id %>" type="submit" class="delete">(Delete)</a></td>
-			<tr>
-		<% }); %>
-	</table>
+			</div>
+		</div>
+	</div>
 </div>

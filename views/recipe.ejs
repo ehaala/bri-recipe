@@ -1,20 +1,23 @@
 <div class='row'>
 
-	<div class='col-sm-1'></div>
-	<div class='col-sm-4 basicDiv center'>
+	<div class='col-sm-5 basicDiv center'>
 		<h1 class='kalam'><%= recipe.name %></h1>
 		<p class='center'>Created by: <a href='/users/<%= user.id %>'><%= user.firstName %></a></p>
-		<p>Favorites: <%= favorites.length %></p>
+		<p>Likes: <%= favorites.length %></p>
 		<form method="POST" action="/favorites" class='in-block center'>
 			<input hidden type='text' name='name' value='<%= recipe.name %>'>
 			<input hidden type="text" name="recipeid" value="<%= recipe.id %>">
-			<button class="btn btn-success" type="submit">Favorite</button>
+			<button class="btn btn-primary circle" type="submit"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>
 		</form>
+		<hr />
+		<% recipe.images.forEach(function(image) { %>
+			<img src='<%= image.url %>' class='boxshadow grayborder' name='<%= image.name %>' width='80%' />
+		<% }) %>
 	</div>
 
 	<div class='col-sm-1'></div>
 
-	<div class='col-sm-5'>
+	<div class='col-sm-6'>
 		<div class='row'>
 			<div class='col-sm-12 basicDiv ingredients'>
 				<h2 class='kalam in-block center'>
@@ -40,6 +43,5 @@
 			</div>
 		</div>
 	</div>
-	<div class='col-sm-1'></div>
 
 </div>

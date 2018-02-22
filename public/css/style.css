@@ -67,10 +67,24 @@ a {
 	color: #6495ED !important;
 }
 
+.boxshadow{
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+       -moz-box-shadow: 0 10px 6px -6px #777;
+            box-shadow: 0 10px 6px -6px #777;
+}
+
+.grayborder {
+	border: solid lightgray 1px;
+}
+
 #userList {
 	list-style: none;
 }
 
 #favList {
+	list-style: none;
+}
+
+#browse {
 	list-style: none;
 }

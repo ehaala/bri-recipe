@@ -68,4 +68,6 @@ $('document').ready(function() {
 	sortUL("#userList");
 
 	sortUL("#favList");
+
+	sortUL("#browse");
 })

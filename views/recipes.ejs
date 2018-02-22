@@ -1,0 +1,19 @@
+<div class='row basicDiv'>
+	<h1 class='kalam'>All Recipes</h1>
+	<h4 class='center'>(sorted alphabetically)</h4>
+	<hr />
+	<ul id='browse'>
+		<% recipes.forEach(function(recipe) { %>
+			<li>
+				<div class='col-sm-6'>
+				 	<a href='recipes/<%= recipe.id %>'><h3><%= recipe.name %></h3></a>
+				 	<% users.forEach(function(user) { %>
+				 		<% if(user.id === recipe.userId) { %>
+				 			<p>(by <a href='users/<%= user.id %>'><%= user.firstName %></a>)</p>
+				 		<% } %>
+				 	<% }) %>
+				</div>
+			</li>
+		<% }) %>
+	</ul>
+</div>

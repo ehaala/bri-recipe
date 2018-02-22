@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
         // associations can be defined here
         models.recipe.hasMany(models.instruction);
         models.recipe.hasMany(models.ingredient);
+        models.recipe.hasMany(models.image);
       }
     }
   });

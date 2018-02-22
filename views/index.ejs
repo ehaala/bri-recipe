@@ -11,7 +11,7 @@
 
 <div class='row basicDiv'>
 	<div class='col-sm-12'>
-		<h3 class='center kalam'>Popular Recipes</h3>
+		<h2 class='center kalam'>Popular Recipes</h2>
 	</div>
 	<div class='row center'>
 		<% recipes.forEach(function(recipe) { %>
@@ -24,7 +24,7 @@
 			<% if(favArr.length > 2) { %>
 				<div class='col-sm-4'>
 					<a href='/recipes/<%= recipe.id %>'><h3><%= recipe.name %></h3></a>
-					<p><%= favArr.length %> favorites</p>
+					<p><%= favArr.length %> likes</p>
 				</div>
 			<% } %>
 		<% }); %>
